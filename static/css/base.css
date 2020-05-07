@@ -1,0 +1,12 @@
+form.get_client_secret {
+    display: table;
+}
+
+label, input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+label {
+    padding-right: 10px;
+}
