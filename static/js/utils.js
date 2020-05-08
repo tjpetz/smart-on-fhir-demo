@@ -47,6 +47,7 @@ function clientSecret() {
   let client_secret = document.getElementById("client_secret");
   localStore("client_secret", client_secret.value);
   sessionStore("client_secret", client_secret.value);
+  window.location.replace("./index.html");
 }
 
 //function to hide or unhide the password
