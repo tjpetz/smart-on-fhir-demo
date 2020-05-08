@@ -3,17 +3,47 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="./static/css/base.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 </head>
 
 <body>
-    <form class="get_client_secret">
-        <label for="name">Client Secret: </label>
-        <input type="password" name="client_secret" id="client_secret" required />
-        <br />
-        <input type="checkbox" onClick="hideSecret();" />Show Password
-        <br />
-        <input type="submit" value="submit" onClick="clientSecret();" />
-    </form>
+    <nav class="navbar navbar-light nav-shadow">
+        <a class="navbar-brand" href="#">
+            <img src="./static/images/innovaccer_logo.png" id="img-size" alt="Innovaccer_logo" />
+        </a>
+    </nav>
+    <div id="first">
+        <div class="container">
+            <div class="oauth_error"></div>
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card card-signin my-5">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Enter Your Credentials</h5>
+
+
+
+                            <div class="form-label-group">
+                                <input type="password" id="client_secret" class="form-control" name="secret" value=""
+                                    placeholder="Enter Client Secret" required />
+                                <label for="client_secret">Enter Client Secret</label>
+                                <br />
+                                <!-- <input type="checkbox" onClick="hideSecret();" />Show Password -->
+                            </div>
+
+
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="clientSecret()"
+                                type="submit">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./static/js/storage.js"></script>
     <script src="./static/js/utils.js"></script>
 </body>
