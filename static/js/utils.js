@@ -36,6 +36,7 @@ function getURL() {
     storageDriver({ key: "client_id", value: client_id }, local, set);
     storageDriver({ key: "client_id", value: client_id }, session, set);
     document.getElementById("main").innerHTML = "success";
+    window.location.replace("https://sid22.dev/smart-on-fhir-demo/base.html");
   } else if (!isUrlValid(api_url))
     document.getElementById("main").innerHTML = "Wrong API url";
   else if (!!isUrlValid(oauth_url))

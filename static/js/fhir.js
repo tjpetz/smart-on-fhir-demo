@@ -6,8 +6,8 @@ async function fhirSearch(resource, searchParams, page, count) {
   let lastElement = fhirUrl.slice(-1);
   if (lastElement != "/") fhirUrl += "/";
   let fhirReqHeaders = new Headers();
-  let applicationToken = oauth();
-  let acessToken = applicationToken["token"];
+  let applicationToken = await oauth();
+  let accessToken = applicationToken["token"];
   fhirReqHeaders.append("x-api-key", accessToken);
   fhirReqHeaders.append("Content-Type", "application/json");
   let requestOptions = {
