@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Developer page</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="./static/css/mainPage.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./static/css/json-viewer.css"
+    />
+  </head>
+
+  <body onload="onloadPage()">
+    <nav class="navbar navbar-light nav-shadow">
+      <a class="navbar-brand" href="#">
+        <img
+          src="./static/images/innovaccer_logo.png"
+          id="img-size"
+          alt="Innovaccer_logo"
+        />
+      </a>
+    </nav>
+    <!-- Main container -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- column for resources button -->
+        <div class="col-2 resource rounded">
+          <h4><center>FHIR Resources</center></h4>
+          <div class="btn-group-vertical w-100" id="resources-button"></div>
+        </div>
+        <!-- column for resources custom query option and resources data -->
+        <div class="col-10">
+          <!-- div for resource name and it will fill dynamically -->
+          <div id="resources-name"></div>
+          <!-- div for custom query option -->
+          <div id="custom-query">
+            <div id="selection_box">
+              <div class="row form-inline">
+                <div class="col-4">
+                  <label
+                    >Query Parameter :-
+                    <select
+                      class="form-control"
+                      id="parameters"
+                      onchange="ibtn()"
+                    >
+                    </select>
+                  </label>
+                </div>
+                <div class="col-4">
+                  <label
+                    >Value :-
+                    <input class="form-control" id="parameterValue" />
+                  </label>
+                </div>
+                <div class="col-2" id="ibtn">
+                  <button
+                    data-toggle="tooltip"
+                    class="ibtn"
+                    title="Select Any Parameter"
+                    id="iButton"
+                  >
+                    i
+                  </button>
+                </div>
+                <div class="col-2">
+                  <button
+                    class="btn btn-primary mb-2"
+                    id="add_query_button"
+                    onclick="addQueryClick()"
+                  >
+                    Add
+                  </button>
+                  <button
+                    class="btn btn-primary mb-2"
+                    id="submit_query_button"
+                    onclick="submitQuery()"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col" id="added_queries"></div>
+              </div>
+            </div>
+          </div>
+          <!-- div for selected query param and its value -->
+          <div id="selected-query"></div>
+          <!-- div for resources result in row -->
+          <div id="resource-result"></div>
+
+          <div id="pagination">
+            <div id="pagination_button"></div>
+            <div id="pagination_stats"></div>
+          </div>
+        </div>
+      </div>
+      <!-- here add div for pagination -->
+    </div>
+
+    <!-- <script type="text/javascript" src="./static/js/json-viewer.js"></script> -->
+    <script type="text/javascript" src="./lib/oauth.js"></script>
+
+    <script type="text/javascript" src="./static/js/data.js"></script>
+    <script type="text/javascript" src="./static/js/fhir.js"></script>
+    <script type="text/javascript" src="./static/js/pagination.js"></script>
+    <script type="text/javascript" src="./static/js/querySelect.js"></script>
+    <script type="text/javascript" src="./static/js/renderJSON.js"></script>
+    <script type="text/javascript" src="./static/js/script.js"></script>
+    <script type="text/javascript" src="./static/js/storage.js"></script>
+    <script type="text/javascript" src="./static/js/utils.js"></script>
+    <script type="text/javascript" src="./static/js/json-viewer.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
