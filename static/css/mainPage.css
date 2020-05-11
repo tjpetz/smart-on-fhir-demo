@@ -18,9 +18,11 @@
   background-color: #ffdbe9;
   padding: 0.3em;
 }
+
 #resources-button {
-  overflow: auto;
   max-height: 500px;
+  top: 50;
+  overflow-y: scroll;
 }
 
 .btn-change7:hover {
@@ -58,10 +60,6 @@
   border: none;
   background-color: inherit;
 }
-#resources-button {
-  top: 50;
-  overflow-y: scroll;
-}
 
 #selection_box {
   display: none;
@@ -71,6 +69,7 @@
   margin-top: 0.5em;
 }
 .container-fluid {
+  /* margin-left: 1em; */
   margin-top: 4em;
 }
 /* new nav-bar*/
