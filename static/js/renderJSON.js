@@ -11,7 +11,7 @@ function renderJSON(queryData) {
       "<button type='button' class='list-group-item list-group-item-action json_list_button' data-target=" +
       `${target} data-toggle='collapse' onclick = renderJSONviewer('${target_id}') ><div>`;
 
-    for (i in data[resource]["displayParam"]) {
+    for (let i in data[resource]["displayParam"]) {
       functionName = data[resource]["displayParam"][i];
       text += data[resource][functionName](
         queryData["entry"][0]["resource"][entry]
