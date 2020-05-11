@@ -67,7 +67,6 @@ function submitQuery() {
   }
   convertArray();
   driver(resource, searchParams, 1);
-  document.getElementById("selected-query").innerHTML = "";
 }
 
 // Function to flush the previously present
