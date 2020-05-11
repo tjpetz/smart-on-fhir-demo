@@ -2,9 +2,9 @@
   margin: 0px;
   padding: 0px;
 }
-.nav-shadow {
+/* .nav-shadow {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.03);
-}
+} */
 
 #img-size {
   width: 20%;
@@ -58,6 +58,10 @@
   border: none;
   background-color: inherit;
 }
+#resources-button {
+  top: 50;
+  overflow-y: scroll;
+}
 
 #selection_box {
   display: none;
@@ -65,4 +69,130 @@
 
 #custom-query {
   margin-top: 0.5em;
+}
+.container-fluid {
+  margin-top: 4em;
+}
+/* new nav-bar*/
+.btn-outline-innovaccer {
+  color: #e31c79;
+  border-color: #e31c79;
+  margin-right: 28px;
+  margin-top: 26px;
+}
+
+.btn.focus,
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-outline-innovaccer-purple {
+  color: #e31c79;
+  margin-right: 28px;
+  margin-top: 12px;
+  border: 2px solid #e31c79;
+  border-radius: 4px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  z-index: 100;
+  /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.09); */
+  height: 70px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(0, 0, 0);
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #e31c79;
+}
+
+.navbar .navbar-text {
+  color: rgb(0, 0, 0);
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-left: 47px;
+}
+
+.navbar-left-item {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  color: #000000;
+  left: 47px;
+  line-height: 24px;
+  /* margin-top: 21px; */
+}
+.navbar-nav .nav-item-red.active .nav-link,
+.navbar-nav .nav-item-red:hover .nav-link {
+  color: #e31c79;
+}
+.navbar-brand {
+  margin-left: 16px;
+  /* margin-top: 16px; */
+}
+.navbar-brand-image {
+  width: 222px;
+  margin-top: auto;
+}
+.navbar-user {
+  color: #0070dd;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 26px;
+  /* margin-top: 23px; */
+}
+.navbar-dropdown-items {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+}
+.navbar-buttons {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: -15px;
+}
+.navbar-buttons .link-text {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #e31c79;
+}
+.navbar-right-text {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  margin-right: 26px;
+  margin-top: 5px;
+}
+/* end */
+
+.flex-display {
+  display: flex;
+}
+
+.width100 {
+  width: 100% !important;
+}
+.btn-primary {
+  color: rgb(0, 0, 0);
+  background-color: rgba(224, 14, 172, 0.815);
+  border-color: #ff00dd;
 }

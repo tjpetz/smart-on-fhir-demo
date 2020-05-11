@@ -54,9 +54,25 @@ function clientSecret() {
 //function to hide or unhide the password
 function hideSecret() {
   let x = document.getElementById("client_secret");
+  let y = document.getElementById("hide1");
+  let z = document.getElementById("hide2");
   if (x.type === "password") {
     x.type = "text";
+    y.style.display = "block";
+    z.style.display = "none";
   } else {
+    y.style.display = "none";
+    z.style.display = "block";
     x.type = "password";
+  }
+}
+
+//function to clear storage and closethe tab
+function closeTab() {
+  var conf = confirm("Are you sure, you want to close this tab?");
+  if (conf == true) {
+    localStorage.clear();
+    sessionStorage.clear();
+    close();
   }
 }
