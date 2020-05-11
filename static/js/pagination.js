@@ -15,8 +15,8 @@ function createButtons(currentPage, totalCount) {
   let text = "";
   let range = 5;
 
-  if (count > totalPages) {
-    count = totalPages;
+  if (range > totalPages) {
+    range = totalPages;
   }
   let start = 1;
 

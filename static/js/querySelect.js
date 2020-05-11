@@ -93,7 +93,13 @@ function ibtn() {
   let val;
   for (i in x) {
     if (x[i]["name"] == value) {
-      val = x[i]["value"].toString();
+      if (x[i]["value"] == null) {
+        val = `sorry! there is not any sample value for`;
+        val += x[i]["name"];
+        val += `param`;
+      } else {
+        val = x[i]["value"].toString();
+      }
     }
   }
   document.getElementById("iButton").title = val;
