@@ -3,10 +3,24 @@
 let resource, searchParams, page, count;
 async function fhirSearch(resource, searchParams, page, count) {
   let fhirUrl = storageDriver({ key: "api_url" }, "local", "get");
+  // if fhirUrl gets nothing from the storageDriver
+  if (fhirUrl == null) {
+    return {
+      status: "Failure",
+      message: "Invalid URl",
+    };
+  }
   let lastElement = fhirUrl.slice(-1);
   if (lastElement != "/") fhirUrl += "/";
   let fhirReqHeaders = new Headers();
   let applicationToken = await oauth();
+  // if applicationToken is not found
+  if (applicationToken["status"] == "Failure") {
+    return {
+      status: "Failure",
+      message: "Invalid Credentials",
+    };
+  }
   let accessToken = applicationToken["token"];
   fhirReqHeaders.append("x-api-key", accessToken);
   fhirReqHeaders.append("Content-Type", "application/json");
@@ -22,15 +36,34 @@ async function fhirSearch(resource, searchParams, page, count) {
     }
   }
   query = query.slice(0, -1);
-  let data;
   let pageQuery = "&_page=" + page + "&_count=" + count;
-  await fetch(fhirUrl + resource + "?" + query + pageQuery, requestOptions)
-    .then((response) => response.text())
-    .then((result) => {
-      data = JSON.parse(result);
-    })
+  let data = await fetch(
+    fhirUrl + resource + "?" + query + pageQuery,
+    requestOptions
+  )
+    .then((response) =>
+      response.text().then((result) => {
+        if (response.ok) {
+          result = JSON.parse(result);
+          result["status"] = response.status;
+          result["message"] = "Successfully Executed";
+          return result;
+        } else {
+          result = JSON.parse(result);
+          return {
+            status: response.status,
+            message: result["issue"][0]["diagnostics"],
+          };
+        }
+      })
+    )
     .catch((error) => {
-      alert("Error while hitting API !");
+      console.log(error);
+      return {
+        status: "Failure",
+        code: "200",
+        message: error,
+      };
     });
   return data;
 }
