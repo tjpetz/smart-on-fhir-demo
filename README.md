@@ -2,4 +2,4 @@
 
 Innovaccer FHIR Portal Demo app
 
-![Image description](./static/images/flowchart.jpg)
+![Image description](./core/static/images/flowchart.jpg)

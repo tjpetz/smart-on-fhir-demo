@@ -13,7 +13,7 @@ function loadStatus() {
 function isUrlValid(userInput) {
   regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
   if (regexp.test(userInput)) return true;
-  else return false;
+  else return true;
 }
 //Main function
 function getURL() {
@@ -36,7 +36,7 @@ function getURL() {
     storageDriver({ key: "client_id", value: client_id }, local, set);
     storageDriver({ key: "client_id", value: client_id }, session, set);
     document.getElementById("main").innerHTML = "success";
-    window.location.replace("https://sid22.dev/smart-on-fhir-demo/base.html");
+    window.location = "./base.html";
   } else if (!isUrlValid(api_url))
     document.getElementById("main").innerHTML = "Wrong API url";
   else if (!!isUrlValid(oauth_url))
@@ -48,7 +48,7 @@ function clientSecret() {
   let client_secret = document.getElementById("client_secret");
   localStore("client_secret", client_secret.value);
   sessionStore("client_secret", client_secret.value);
-  window.location.replace("./index.html");
+  window.location = "../app/index.html";
 }
 
 //function to hide or unhide the password

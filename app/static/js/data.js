@@ -14,10 +14,12 @@ let data = {
       {
         name: "address",
         type: "string",
+        value: ["ohio", "SOUTH FAUSTA"],
       },
       {
         name: "name",
         type: "string",
+        value: ["HOBESH", "MICHAELSON"],
       },
       {
         name: "language",
@@ -65,10 +67,12 @@ let data = {
       {
         name: "address-city",
         type: "string",
+        value: ["ohio", "SOUTH FAUSTA"],
       },
       {
         name: "name",
         type: "string",
+        value: ["HOBESH", "MICHAELSON"],
       },
       {
         name: "language",
@@ -106,7 +110,7 @@ let data = {
       {
         name: "clinical-status",
         type: "string",
-        value: ["active"],
+        value: ["active", "inactive"],
       },
       {
         name: "verification-status",
@@ -123,21 +127,32 @@ let data = {
       {
         name: "patient",
         type: "string",
+        value: ["45bc477f-8656-437b-b03a-74923a64efb0"],
       },
       {
         name: "onset-date",
         type: "string",
+        value: ["2005-03-15 00:00:00"],
       },
       {
         name: "code",
         type: "string",
+        value: ["4406004"],
       },
       {
         name: "asserter",
         type: "string",
+        value: ["4d618250-3ff3-4911-bca3-dac1bf464758"],
       },
     ],
-    displayParam: ["patient", "onSetDate", "code", "asserter"],
+    displayParam: [
+      "clinical-status",
+      "verification-status",
+      "patient",
+      "onSetDate",
+      "code",
+      "asserter",
+    ],
     patient: function (queryData) {
       return "Patient : " + queryData["subject"]["reference"];
     },
@@ -192,6 +207,7 @@ let data = {
       {
         name: "encounter",
         type: "string",
+        value: ["16b98bb9-c9b9-4e15-9feb-77006cf304d9"],
       },
     ],
     displayParam: ["status", "priority", "intent", "encounter"],
@@ -234,6 +250,7 @@ let data = {
       {
         name: "patient",
         type: "string",
+        value: ["45bc477f-8656-437b-b03a-74923a64efb0"],
       },
     ],
     displayParam: ["category", "type", "clinicalStatus", "patient"],
