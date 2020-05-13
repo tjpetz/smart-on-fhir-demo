@@ -1,105 +1,173 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      href="../core/static/images/default_favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../core/static/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./static/css/mainPage.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./static/css/json-viewer.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Merriweather"
+    />
+    <title>InAPI portal</title>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="../core/static/images/default_favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" type="text/css" href="../core/static/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="./static/css/mainPage.css" />
-  <link rel="stylesheet" type="text/css" href="./static/css/json-viewer.css" />
-  <title>InAPI portal</title>
-</head>
+  <body onload="onloadPage()">
+    <nav class="navbar fixed-top shadow">
+      <a class="navbar-brand" href="">
+        <img src="./static/images/innovaccer_logo.svg" alt="" />
+      </a>
+      <span class="navbar-text">
+        <button class="btn btn-primary btn-sm" onclick="closeTab()">
+          Clear & Close
+        </button>
+      </span>
+    </nav>
 
-<body onload="onloadPage()">
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="/">
-      <img src="./static/images/innovaccer_logo.svg" class="navbar-brand-image d-inline-block align-top"
-        alt="innovaccer logo" />
-    </a>
-    <ul class="navbar-nav ml-auto">
-      <button class="btn btn-primary btn-sm" onclick="closeTab()">
-        Close
-      </button>
-    </ul>
-  </nav>
-  <!-- Main container -->
-  <div class="container-fluid">
-    <div class="row">
-      <!-- column for resources button -->
-      <div class="col-2 resource rounded">
-        <h4>
-          <center>FHIR Resources</center>
-        </h4>
-        <div class="btn-group-vertical w-100" id="resources-button"></div>
-      </div>
-      <!-- column for resources custom query option and resources data -->
-      <div class="col-10">
-        <!-- div for resource name and it will fill dynamically -->
-        <div id="resources-name"></div>
-        <!-- div for custom query option -->
-        <div id="custom-query">
-          <div id="selection_box">
-            <div class="row form-inline">
-              <div class="col-4">
-                <label>Query Parameter :-
-                  <select class="form-control" id="parameters" onchange="ibtn()">
-                  </select>
-                </label>
+    <div id="container-full">
+      <div class="row">
+        <div class="col-3 col-md-3 col-lg-3">
+          <div class="resources-column">
+            <div class="inapi-sandbox-heading">
+              InAPI Sandbox
+            </div>
+            <div id="resources-button"></div>
+          </div>
+        </div>
+        <div class="col-9 col-md-8 col-lg-9">
+          <div id="overview-box">
+            <h4 class="overview-heading">Overview</h4>
+            <p class="description-text">
+              FHIR (Fast Healthcare Interoperability Resources) is a
+              next-generation platform specification developed by HL7 for
+              healthcare data interoperability.
+            </p>
+            <p class="description-text">
+              With the healthcare industry rapidly adopting the FHIR standard,
+              Innovaccer is future-ready with InAPI modelled over the FHIR
+              standards for true interoperability. FHIR not only supports
+              extremely common interoperability challenges but, because of its
+              design as a platform specification, and many of FHIR’s interesting
+              features, FHIR opens the door to entirely new, modern, flexible
+              and adaptive sets of healthcare product solution designs.
+            </p>
+            <h4 class="overview-heading">Sandbox</h4>
+            <p class="description-text">
+              Innovaccer’s InAPI leverages existing logical and theoretical
+              models to provide a consistent, easy to implement, and rigorous
+              mechanism for exchanging data between healthcare applications,
+              supporting 26 FHIR resources. The extensibility feature of FHIR
+              has been used to introduce extensions in the resources to support
+              additional use-cases.
+            </p>
+          </div>
+
+          <div id="result-box">
+            <div class="row">
+              <div class="col-4 col-md-4 col-lg-4">
+                <!-- div for resource name and it will fill dynamically -->
+                <div id="resources-name"></div>
               </div>
-              <div class="col-4">
-                <label>Value :-
-                  <input class="form-control" id="parameterValue" />
-                </label>
-              </div>
-              <div class="col-2" id="ibtn">
-                <button data-toggle="tooltip" class="ibtn" title="Select Any Parameter" id="iButton">
-                  i
-                </button>
-              </div>
-              <div class="col-2">
-                <button class="btn btn-primary mb-2" id="add_query_button" onclick="addQueryClick()">
-                  Add
-                </button>
-                <button class="btn btn-primary mb-2" id="submit_query_button" onclick="submitQuery()">
-                  Submit
-                </button>
+              <div class="col-8 col-md-8 col-lg-8">
+                <!-- div for custom query option -->
+                <div id="custom-query">
+                  <div id="selection_box">
+                    <div class="row form-inline">
+                      <div id="query-select">
+                        <p class="summary-text" id="parameter-text"></p>
+                        <select
+                          class="form-control"
+                          id="parameters"
+                          onchange="ibtn()"
+                        >
+                          <option value="" disabled selected
+                            >Query Parameter</option
+                          >
+                        </select>
+                        <input
+                          class="form-control"
+                          id="parameterValue"
+                          placeholder="Value"
+                        />
+
+                        <button
+                          class="btn btn-primary mb-2 button-query"
+                          id="add_query_button"
+                          onclick="addQueryClick()"
+                        >
+                          Add
+                        </button>
+                        <button
+                          class="btn btn-primary mb-2 button-query"
+                          id="submit_query_button"
+                          onclick="submitQuery()"
+                        >
+                          Search
+                        </button>
+                      </div>
+                      <!-- <div class="col-2"></div> -->
+                    </div>
+                    <div class="row">
+                      <div class="col" id="added_queries"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col" id="added_queries"></div>
+
+            <!-- div for selected query param and its value -->
+            <div id="selected-query"></div>
+            <!-- div for resources result in row -->
+            <div id="resource-result" class="result-shadow"></div>
+            <div id="pagination">
+              <div class="row" id="pagination-box">
+                <div class="col-5">
+                  <div id="pagination_stats"></div>
+                </div>
+                <div class="col-7">
+                  <div id="pagination_button"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <!-- div for selected query param and its value -->
-        <div id="selected-query"></div>
-        <!-- div for resources result in row -->
-        <div id="resource-result"></div>
-
-        <div id="pagination">
-          <div id="pagination_button"></div>
-          <div id="pagination_stats"></div>
-        </div>
       </div>
     </div>
-    <!-- here add div for pagination -->
-  </div>
 
-  <!-- <script type="text/javascript" src="./static/js/json-viewer.js"></script> -->
-  <script type="text/javascript" src="../core/static/js/oauth.js"></script>
+    <!-- <script type="text/javascript" src="./static/js/json-viewer.js"></script> -->
+    <script type="text/javascript" src="../core/static/js/oauth.js"></script>
 
-  <script type="text/javascript" src="./static/js/data.js"></script>
-  <script type="text/javascript" src="../core/static/js/fhir.js"></script>
-  <script type="text/javascript" src="./static/js/pagination.js"></script>
-  <script type="text/javascript" src="./static/js/querySelect.js"></script>
-  <script type="text/javascript" src="./static/js/renderJSON.js"></script>
-  <script type="text/javascript" src="./static/js/script.js"></script>
-  <script type="text/javascript" src="../core/static/js/storage.js"></script>
-  <script type="text/javascript" src="../core/static/js/utils.js"></script>
-  <script type="text/javascript" src="./static/js/json-viewer.js"></script>
+    <script type="text/javascript" src="./static/js/data.js"></script>
+    <script type="text/javascript" src="../core/static/js/fhir.js"></script>
+    <script type="text/javascript" src="./static/js/pagination.js"></script>
+    <script type="text/javascript" src="./static/js/querySelect.js"></script>
+    <script type="text/javascript" src="./static/js/renderJSON.js"></script>
+    <script type="text/javascript" src="./static/js/script.js"></script>
+    <script type="text/javascript" src="../core/static/js/storage.js"></script>
+    <script type="text/javascript" src="../core/static/js/utils.js"></script>
+    <script type="text/javascript" src="./static/js/json-viewer.js"></script>
 
-  <script src="../core/static/js/jquery-3.2.1.slim.min.js"></script>
-  <script src="../core/static/js/popper.min.js"></script>
-  <script src="../core/static/js/bootstrap.min.js"></script>
-</body>
-
+    <script src="../core/static/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="../core/static/js/popper.min.js"></script>
+    <script src="../core/static/js/bootstrap.min.js"></script>
+  </body>
 </html>

@@ -29,10 +29,10 @@ let data = {
     ],
     displayParam: ["fullName", "gender", "language", "address"],
     fullName: function (queryData) {
-      return `Name : ${queryData["name"][0]["given"][0]} ${queryData["name"][0]["family"]}`;
+      return `<b>Name</b>: ${queryData["name"][0]["given"][0]} ${queryData["name"][0]["family"]}`;
     },
     language: function (queryData) {
-      let text = "<br>Language : ";
+      let text = "<br><b>Language</b>: ";
       if (queryData["communication"] != null) {
         text += queryData["communication"][0]["language"]["coding"]["code"];
       } else {
@@ -41,11 +41,11 @@ let data = {
       return text;
     },
     gender: function (queryData) {
-      return "<br>Gender : " + queryData["gender"];
+      return "<br><b>Gender</b>: " + queryData["gender"];
     },
     address: function (queryData) {
       return (
-        "<br>Address : " +
+        "<br><b>Address</b>: " +
         queryData["address"][0]["city"] +
         ", " +
         queryData["address"][0]["state"]
@@ -82,10 +82,10 @@ let data = {
     ],
     displayParam: ["fullName", "gender", "language", "address"],
     fullName: function (queryData) {
-      return `Name : ${queryData["name"][0]["given"][0]} ${queryData["name"][0]["family"]}`;
+      return `<b>Name</b>: ${queryData["name"][0]["given"][0]} ${queryData["name"][0]["family"]}`;
     },
     language: function (queryData) {
-      let text = "<br>Language : ";
+      let text = "<br><b>Language</b>: ";
       if (queryData["communication"] != null) {
         text += queryData["communication"][0]["language"]["coding"]["code"];
       } else {
@@ -94,11 +94,11 @@ let data = {
       return text;
     },
     gender: function (queryData) {
-      return "<br>Gender : " + queryData["gender"];
+      return "<br><b>Gender</b>: " + queryData["gender"];
     },
     address: function (queryData) {
       return (
-        "<br>Address : " +
+        "<br><b>Address</b>: " +
         queryData["address"][0]["city"] +
         ", " +
         queryData["address"][0]["state"]
@@ -145,30 +145,23 @@ let data = {
         value: ["4d618250-3ff3-4911-bca3-dac1bf464758"],
       },
     ],
-    displayParam: [
-      "clinical-status",
-      "verification-status",
-      "patient",
-      "onSetDate",
-      "code",
-      "asserter",
-    ],
+    displayParam: ["patient", "onSetDate", "code", "asserter"],
     patient: function (queryData) {
-      return "Patient : " + queryData["subject"]["reference"];
+      return "<b>Patient</b>: " + queryData["subject"]["reference"];
     },
     onSetDate: function (queryData) {
-      return "<br>On-set Date : " + queryData["onsetDateTime"];
+      return "<br><b>On-set Date</b>: " + queryData["onsetDateTime"];
     },
     code: function (queryData) {
       return (
-        "<br>Code : " +
+        "<br><b>Code</b>: " +
         queryData["code"]["coding"][0]["system"] +
         " | " +
         queryData["code"]["coding"][0]["code"]
       );
     },
     asserter: function (queryData) {
-      let text = "<br>Asserter : ";
+      let text = "<br><b>Asserter</b>: ";
       if (queryData["asserter"] != null) {
         text +=
           queryData["asserter"]["type"] +
@@ -212,16 +205,16 @@ let data = {
     ],
     displayParam: ["status", "priority", "intent", "encounter"],
     status: function (queryData) {
-      return "Status : " + queryData["status"];
+      return "<b>Status</b>: " + queryData["status"];
     },
     priority: function (queryData) {
-      return "<br>Priority : " + queryData["priority"];
+      return "<br><b>Priority</b>: " + queryData["priority"];
     },
     intent: function (queryData) {
-      return "<br>Intent : " + queryData["intent"];
+      return "<br><b>Intent</b>: " + queryData["intent"];
     },
     encounter: function (queryData) {
-      let text = "<br>Encounter : ";
+      let text = "<br><b>Encounter</b>: ";
       if (queryData["encounter"] != null) {
         text += `${queryData["encounter"]["type"]} | ${queryData["encounter"]["reference"]}`;
       } else {
@@ -255,23 +248,23 @@ let data = {
     ],
     displayParam: ["category", "type", "clinicalStatus", "patient"],
     category: function (queryData) {
-      let text = "Category : ";
+      let text = "<b>Category</b>: ";
       for (cat in queryData["category"]) {
         text += queryData["category"][cat] + ", ";
       }
       return text.slice(0, -2);
     },
     type: function (queryData) {
-      return "<br>Type : " + queryData["type"];
+      return "<br><b>Type</b>: " + queryData["type"];
     },
     clinicalStatus: function (queryData) {
       return (
-        "<br>Clinical Status : " +
+        "<br><b>Clinical Status</b>: " +
         queryData["clinicalStatus"]["coding"][0]["code"]
       );
     },
     patient: function (queryData) {
-      return "<br>Patient : " + queryData["patient"]["reference"];
+      return "<br><b>Patient</b>: " + queryData["patient"]["reference"];
     },
   },
 };
