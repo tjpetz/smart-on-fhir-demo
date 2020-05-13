@@ -1,54 +1,175 @@
-.body {
-  margin: 0px;
-  padding: 0px;
+body {
+  font-family: Merriweather;
 }
 
-.resource {
-  height: 87vh;
-  margin-top: 0.5em;
-  background-color: #ffdbe9;
-  padding: 0.3em;
+b {
+  font-family: Lato;
+}
+.navbar-text {
+  color: blue;
+  font-size: large;
+  padding-right: 15px;
 }
 
-#resources-button {
-  max-height: 500px;
-  top: 50;
-  overflow-y: scroll;
+.container-fluid {
+  margin: 10px;
 }
 
-.btn-change7:hover {
-  background: #f987c5 !important;
+#resource-button {
+  overflow-y: auto;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.resource-a-tag {
+  cursor: pointer;
+  font-family: Lato;
+}
+
+.shadow {
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
+#container-full {
+  margin-top: 5%;
+  margin-left: 7%;
+  max-width: 90%;
+}
+.inapi-sandbox-heading {
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 32px;
+  color: #f07d00;
+  letter-spacing: -0.5px;
+  font-family: Lato;
+}
+
+.resources-column {
+  border: 1px;
+  border-style: solid;
+  border-color: #fff8f1;
+  border-radius: 7px;
+  padding: 10px;
+  background-color: #fff8f1;
+
+  /* max-height: 500px;  set this afterwards */
+}
+
+.list-group-item {
+  border: none;
+}
+.list-group-item.active {
+  background-color: rgb(255, 255, 255) !important;
+  border-color: rgb(255, 255, 255) !important;
+  color: rgb(223, 92, 17) !important;
+}
+
+.overview-heading {
+  font-family: Merriweather;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 26px;
+  letter-spacing: -1px;
+  color: #000000;
+  margin-top: 30px;
+}
+.summary-text {
+  font-family: Merriweather;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.fhir-heading {
+  font-family: Lato;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #f07d00;
+  margin-bottom: 8px;
+  padding-top: 10px;
+}
+
+.resource-name-heading {
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 46px;
+  letter-spacing: -1px;
+  color: #000000;
+  margin-bottom: 14px;
+  font-family: Lato;
+}
+
+.description-text {
+  font-family: Lato;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.result-table {
+  cursor: pointer;
+}
+
+.result-shadow {
+  -webkit-box-shadow: 0 4px 3px -3px #999;
+  -moz-box-shadow: 0 4px 3px -3px #999;
+  box-shadow: 0 4px 3px -3px #999;
 }
 
 #resource-result {
-  margin-top: 0.5em;
+  font-family: Lato;
+  max-height: 450px;
+  overflow-y: auto;
+  font-size: 16px;
 }
 
-#resources-name {
-  margin-top: 0.5em;
-}
-
-#pagination_button {
+#query-select {
   float: right;
 }
 
-#pagination_stats {
-  float: left;
-}
-.ibtn {
-  float: left;
-}
-#ibtn {
-  padding: 0px;
-  margin: 0px;
+#parameter-text {
+  margin-bottom: 0px;
 }
 
-#pagination {
-  margin-top: 1em;
+.col-lg-3 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 20%;
+}
+.col-lg-9 {
+  max-width: 80%;
+}
+
+#custom-query {
+  float: right;
+}
+
+.form-control {
+  width: 170px !important;
+  font-size: small;
+}
+input {
+  height: 2.25rem;
+}
+.btn {
+  font-size: small;
+}
+
+.query_delete {
+  margin: 5px;
+  color: black;
+}
+.query_delete_close:hover {
+  color: white;
 }
 
 .query_delete_close {
   border: none;
+  color: black;
   background-color: inherit;
 }
 
@@ -56,40 +177,36 @@
   display: none;
 }
 
-#custom-query {
-  margin-top: 0.5em;
+#selected-query {
+  height: 50px;
 }
 
-.btn-outline-innovaccer {
-  color: #e31c79;
-  border-color: #e31c79;
-  margin-right: 28px;
-  margin-top: 26px;
+.button-query {
+  margin-top: 4px;
 }
 
-.btn.focus,
-.btn:focus {
-  outline: none;
-  box-shadow: none;
+#pagination_stats {
+  float: left;
+  padding-top: 25px;
 }
 
-.btn-outline-innovaccer-purple {
-  color: #e31c79;
-  margin-right: 28px;
-  margin-top: 12px;
-  border: 2px solid #e31c79;
-  border-radius: 4px;
+.pagination-btn {
+  border: none;
+  background-color: inherit;
+}
+#pagination_button {
+  float: right;
+  padding-top: 10px;
 }
 
-.flex-display {
-  display: flex;
+#pagination-box {
+  padding-top: 10px;
 }
 
-.width100 {
-  width: 100% !important;
-}
-.btn-primary {
-  color: rgb(0, 0, 0);
-  background-color: rgba(224, 14, 172, 0.815);
-  border-color: #ff00dd;
+.i-icon {
+  background: url("../images/info-circle-solid.svg");
+  height: 20px;
+  width: 20px;
+  display: block;
+  /* Other styles here */
 }

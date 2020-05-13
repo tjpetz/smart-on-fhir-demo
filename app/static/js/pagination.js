@@ -13,7 +13,7 @@ function createButtons(currentPage, totalCount) {
     totalPages += 1;
   }
   let text = "";
-  let range = 5;
+  let range = 9;
 
   if (range > totalPages) {
     range = totalPages;
@@ -31,49 +31,45 @@ function createButtons(currentPage, totalCount) {
     start = currentPage - Math.floor(range / 2);
   }
 
-  if (start != 1) {
+  if (start - 1 != 0) {
     text +=
-      "<button type='button' class='btn btn-outline-dark' onclick=paginationClick(" +
-      1 +
-      ")>" +
-      "First Page" +
-      "</button> ";
+      "<button type='button' class='btn pagination-btn' onclick=paginationClick(" +
+      (start - 1) +
+      ")>&#8249;</button> ";
   }
   for (let i = start; i <= start + range - 1; i++) {
     if (i == currentPage) {
       text +=
-        "<button type='button' class='btn btn-outline-dark active' onclick=paginationClick(" +
+        "<button type='button' class='btn btn-outline-primary active' onclick=paginationClick(" +
         i +
         ")>" +
         i +
         "</button> ";
     } else {
       text +=
-        "<button type='button' class='btn btn-outline-dark' onclick=paginationClick(" +
+        "<button type='button' class='btn pagination-btn' onclick=paginationClick(" +
         i +
         ")>" +
         i +
         "</button> ";
     }
   }
-  if (start + range - 1 != totalPages) {
+  if (start + range < totalPages) {
     text +=
-      "<button type='button' class='btn btn-outline-dark' onclick=paginationClick(" +
-      totalPages +
-      ")>" +
-      "Last Page" +
-      "</button> ";
+      "<button type='button' class='btn pagination-btn' onclick=paginationClick(" +
+      (start + range) +
+      ")>&#8250;</button> ";
   }
   document.getElementById("pagination_button").innerHTML = text;
 
-  let stats = "Displaying ";
+  let stats = "Showing ";
   start = (currentPage - 1) * count + 1;
   if (currentPage != totalPages) {
     end = currentPage * count;
   } else {
     end = totalCount;
   }
-  stats += `${start}-${end} out of ${totalCount}`;
+  stats += `${start} - ${end} rows of ${totalCount} records`;
 
   document.getElementById("pagination_stats").innerHTML = stats;
 }
