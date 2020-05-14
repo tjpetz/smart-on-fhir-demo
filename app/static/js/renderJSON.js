@@ -11,17 +11,30 @@ function renderJSON(queryData) {
       let target = "#" + target_id;
       let source_json = target_id + "#";
       text +=
-        "<a class='list-group-item list-group-item-action  result-table' data-target=" +
-        `${target} data-toggle='collapse' onclick = renderJSONviewer('${target_id}') ><div>`;
+        "<a class='list-group-item list-group-item-action result-list-item result-table' data-target=" +
+        `${target} data-toggle='collapse' onclick = renderJSONviewer('${target_id}') ><div class='container'>`;
+      let j = 0;
 
       for (let i in data[resource]["displayParam"]) {
         functionName = data[resource]["displayParam"][i];
-        text += data[resource][functionName](
-          queryData["entry"][0]["resource"][entry]
-        );
+        if (j % 2 == 0) {
+          text += `<div class='row'><div class='col-6'>`;
+          text += data[resource][functionName](
+            queryData["entry"][0]["resource"][entry]
+          );
+          text += `</div>`;
+        } else {
+          text += `<div class='col-6'>`;
+          text += data[resource][functionName](
+            queryData["entry"][0]["resource"][entry]
+          );
+
+          text += `</div></div>`;
+        }
+        j++;
       }
       text +=
-        "<br></div></a>" +
+        "</div></a>" +
         `<pre class='collapse json_collapse' id=${source_json}>` +
         JSON.stringify(queryData["entry"][0]["resource"][entry]) +
         "</pre>" +

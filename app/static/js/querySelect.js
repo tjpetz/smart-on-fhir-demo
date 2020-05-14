@@ -1,14 +1,15 @@
 // To store the selected queries
+var queryAdded = {};
 
 // Function to populate the select tag
 // with the parameters available to
 // query the selected API resource
 function populateParam(resource) {
+  queryAdded = {};
   let parameterSelect = document.getElementById("parameters");
   removeOptions(parameterSelect);
   documentFragment = document.createDocumentFragment();
   let parameter;
-  let index = 0;
 
   for (parameter in data[resource]["queryParam"]) {
     let option = document.createElement("option");
@@ -29,9 +30,9 @@ function addQueryClick() {
   let parameter = document.getElementById("parameters").value;
   let parameterValue = document.getElementById("parameterValue").value;
   if (parameter != "" && parameterValue != "") {
-    if (!searchParams.hasOwnProperty(parameter)) {
-      searchParams[parameter] = parameterValue;
-      createQueryIcons();
+    if (!queryAdded.hasOwnProperty(parameter)) {
+      queryAdded[parameter] = parameterValue;
+      createQueryIcons(queryAdded);
     }
   }
 
@@ -39,36 +40,44 @@ function addQueryClick() {
 }
 
 // The function to display the added queries as icons
-function createQueryIcons() {
+function createQueryIcons(data) {
   document.getElementById("selected-query").innerHTML = "";
-  for (i in searchParams) {
+  for (i in data) {
     document.getElementById("selected-query").innerHTML +=
-      "<p class='btn btn-outline-primary query_delete'>" +
+      `<button class='btn btn-outline-primary query-delete' onclick=deleteQuery("${i}")>` +
       i +
-      " : " +
-      searchParams[i] +
-      "<button type='button' class='query_delete_close' onclick=" +
-      `deleteQuery("${i}")` +
-      "><span aria-hidden='true'>&times;</span></button></p> ";
+      ": " +
+      data[i] +
+      "  &#x2715;</button> ";
   }
 }
 
 // The function to delete any query item
 function deleteQuery(id) {
-  delete searchParams[id];
-  createQueryIcons();
+  // queryAdded.splice(id, 1);
+  delete queryAdded[id];
+  createQueryIcons(queryAdded);
 }
 
 // Function which will be called when
 // submit query button will be clicked
 function submitQuery() {
-  if (Object.keys(searchParams).length == 0) {
+  if (Object.keys(queryAdded).length == 0) {
     addQueryClick();
   }
-  if (Object.keys(searchParams).length != 0) {
+  if (Object.keys(queryAdded).length != 0) {
+    convertArray();
     driver(resource, searchParams, 1);
   } else {
     alert("Please Enter the parameters correctly.");
+  }
+}
+
+// Function to convert addedQueries array to searchParams
+function convertArray() {
+  searchParams = {};
+  for (i in queryAdded) {
+    searchParams[i] = queryAdded[i];
   }
 }
 
@@ -82,6 +91,7 @@ function removeOptions(selectElement) {
   }
 }
 
+// Function to display example value on input tag
 function ibtn() {
   let value = document.getElementById("parameters").value;
   let x = data[resource]["queryParam"];
