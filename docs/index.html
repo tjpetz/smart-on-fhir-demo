@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Smart on FHIR</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Smart on FHIR</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#github-pages">Github Pages</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#core">Core</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#app">App</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project-setup">Project Setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#app-launch">App Launch</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#access-token-retrieval">Access Token Retrieval</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ouath-lib">Ouath Lib</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#our-authentication-follows-oauth-20-protocol-to-authorize-the-user-it-uses-the-client-credentials-grant-workflow">Our authentication follows OAuth 2.0 protocol to authorize the user. It uses the Client Credentials grant workflow.</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#access-fhir-resources">Access FHIR Resources</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#the-resources-are-accessed-using-fhir-library">The resources are accessed using FHIR Library .</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Smart on FHIR</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><img alt="Innovaccer Logo" src="img/innovaccer_logo.svg" /></p>
+<h1 id="smart-on-fhir">Smart on FHIR</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This documentation will help you create a Sandbox Application using Github pages and Innovaccer Developer Portal to explore FHIR resources.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A github account</li>
+</ul>
+<h2 id="github-pages">Github Pages</h2>
+<p>For the purposes of this tutorial we will be hosting our SMART on FHIR app through GitHub Pages. GitHub Pages is a convenient way to host static or client rendered web sites.
+Setting up GitHub pages is easy, so easy in fact that it’s already done for you.</p>
+<ul>
+<li>It can also be done by the master branch appraoch, first of all, you need to clone the repository, got to settings and then enable the github Pages there.</li>
+<li>Since you forked the tutorial, the gh-pages branch has already been created, however GitHub won’t publish your site until you make a change to the gh-pages branch, so let’s make a change.</li>
+<li>Modify the <code>index.html</code> page to include your GitHub user-name in the title, and commit directly to gh-pages branch.</li>
+<li>Use GitHub UI to directly edit <code>index.html</code>. Simply switch the branch to gh-pages, navigate to <code>/smart-on-fhir-demo/app/index.html</code> and click the pencil icon.</li>
+<li>Commit your changes to deploy.</li>
+<li>Once the app has been redeployed go to <code>https://&lt;gh-username&gt;.github.io/smart-on-fhir-demo/app/index.html</code> to ensure your app is available</li>
+</ul>
+<h2 id="project-structure">Project Structure</h2>
+<p>The overall structure of repo</p>
+<pre><code>├── app
+│   ├── index.html
+│   └── static
+│       ├── css
+│       │   ├── json-viewer.css
+│       │   └── mainPage.css
+│       ├── images
+│       │   └── innovaccer_logo.svg
+│       └── js
+│           ├── data.js
+│           ├── json-viewer.js
+│           ├── pagination.js
+│           ├── querySelect.js
+│           ├── renderJSON.js
+│           └── script.js
+├── core
+│   ├── base.html
+│   ├── entrypoint.html
+│   ├── static
+│   │   ├── css
+│   │   │   ├── base.css
+│   │   │   ├── bootstrap.min.css
+│   │   │   └── font-awesome.min.css
+│   │   ├── images
+│   │   │   ├── default_favicon.ico
+│   │   │   └── flowchart.png
+│   │   └── js
+│   │       ├── bootstrap.min.js
+│   │       ├── fhir.js
+│   │       ├── jquery-3.2.1.slim.min.js
+│   │       ├── jquery.min.js
+│   │       ├── oauth.js
+│   │       ├── popper.min.js
+│   │       ├── storage.js
+│   │       └── utils.js
+│   └── status.html
+├── README.md
+
+</code></pre>
+
+<p>For the reusability and scalability of the Application, its divided into 2 packages</p>
+<ul>
+<li>Core</li>
+<li>App</li>
+</ul>
+<h3 id="core">Core</h3>
+<p>The Core package contains the libraries that connect to the portal. These can be added to other applications as it is.The user can use these libraries to build desired custom applications.</p>
+<p>The key features of these libraries are</p>
+<ul>
+<li>Connect to the portal</li>
+<li>Authorize the users using OAuth2.0</li>
+<li>Perform the FHIR Search operation</li>
+</ul>
+<h3 id="app">App</h3>
+<p>The App package contains the libraries used to build the application.
+The key features of these libraries are</p>
+<ul>
+<li>The UI of the application</li>
+<li>Display results in tabular format</li>
+<li>Perform custom query feature</li>
+<li>Pagination feature</li>
+</ul>
+<h2 id="project-setup">Project Setup</h2>
+<ul>
+<li>The user needs to fork this repository and deploy it to github pages. Guide to deploying a repository to Github pages can be found here <code>https://help.github.com/en/github/working-with-github-pages</code> .</li>
+<li>After getting the link for the deployed repository, the user needs to enter it in the developer portal and click verify.</li>
+<li>It is then checked whether the link is valid or not, by hitting the <code>status.html</code> page in the repo.</li>
+</ul>
+<p>Add Screenshot from portal with steps, not complete pages, just the part
+The complete flow used is shown in the image below.</p>
+<p><img alt="Flow Chart" src="img/flowchart.png" /></p>
+<h2 id="app-launch">App Launch</h2>
+<ul>
+<li>After the verification of the link by the portal, a launch button appears which on clicking launches the application</li>
+<li>After verification of the url in the <code>entrypoint.html</code> which contains the client id, api_url and the ouath_url, these are stored in the local/session storage and redirects to <code>base.html</code>.</li>
+<li>The user needs to enter the client_secret in the <code>base.html</code> which is again stored in local/session storage.</li>
+</ul>
+<p><strong>Note</strong>; Client secret is sensitive information and for the sample sandbox app we store them in Local storage. We recommend using alternative methods in production application and safeguarding the client_secret from XSS attacks.</p>
+<ul>
+<li>This then redirects to <code>index.html</code> which is the home page of our app.</li>
+<li>On the indexl, access token is obtained using oauth lib for</li>
+</ul>
+<h2 id="access-token-retrieval">Access Token Retrieval</h2>
+<p>The access token is generated using the oauth lib.</p>
+<h3 id="ouath-lib">Ouath Lib</h3>
+<h6 id="our-authentication-follows-oauth-20-protocol-to-authorize-the-user-it-uses-the-client-credentials-grant-workflow">Our authentication follows OAuth 2.0 protocol to authorize the user. It uses the Client Credentials grant workflow.</h6>
+<ul>
+<li>To perform the authorization, the client_id, client_secret and oauth url which were stored in the previous steps are retrieved from the storage using the storageDriver.</li>
+<li>The accessToken is first searched in the storage, if present, it is checked whether the token is still valid or timed out. In case of a timed out token, a fresh one is requested.</li>
+<li>In case, token is not found in the storage, a fresh token is generated. Everytime a new token is generated, it is stored in the storage as well with expiry.</li>
+</ul>
+<p>The library returns the result in the following format.</p>
+<pre><code>{
+   status: &quot;Success&quot;,
+   message: &quot;Token created successfully.&quot;,
+   token: &quot;kCspwCQjDpVO2O0p6CjS86BEa9blWxU8&quot;,
+   expires_in: 2304000,
+   onSetTime: 1589380443128
+}
+</code></pre>
+
+<h2 id="access-fhir-resources">Access FHIR Resources</h2>
+<h6 id="the-resources-are-accessed-using-fhir-library">The resources are accessed using FHIR Library .</h6>
+<ul>
+<li>With the access token and the fhir url , we hit the FHIR search API to fetch data.</li>
+<li>The function takes the query parameters and the resource name as arguments . It constructs an appropriate search URL and makes the request along with proper authentication and content-type headers.</li>
+</ul>
+<p>Some important elements required for the fhirSearch are:</p>
+<ol>
+<li>Access Token: This would be retrieved from the oauth lib.</li>
+<li>fhirUrl: This is retrieved from the Local storage.</li>
+<li>Error handling is also performed.</li>
+</ol>
+<p>The function returns data in the following format</p>
+<pre><code>{
+    entry: [{…}],
+    link: [{…}],
+    message: &quot;Successfully Executed&quot;,
+    resourceType: &quot;Bundle&quot;,
+    status: 200,
+    totalCount: 1000,
+    type: &quot;searchset&quot;
+}
+</code></pre>
+
+<p>The status key depicts the status of the search request.</p>
+              
+            </div>
+          </div>
+          <footer>
+  <!--
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+     Copyright etc 
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. -->
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.1.1
+Build Date UTC : 2020-05-14 07:29:02.284154+00:00
+-->

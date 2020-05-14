@@ -1,0 +1,8 @@
+site_name: Smart on FHIR
+
+nav:
+index: index.md
+
+theme: readthedocs
+
+site_dir: ../docs
