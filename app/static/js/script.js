@@ -13,7 +13,7 @@ function onloadPage() {
 
   let addButton = document.getElementById("resources-button");
   addButton.innerHTML = html;
-  count = 20;
+  count = 10;
 
   // to add onclick listener on resource button
   for (let i = 0; i < allResource.length; i++) {
@@ -47,8 +47,9 @@ function onloadPage() {
   }
 }
 
+// The driver function to perform search and display the results
 async function driver(selectedResource, searchParams, page) {
-  createQueryIcons();
+  createQueryIcons(searchParams);
 
   let result = await fhirSearch(selectedResource, searchParams, page, count);
 
@@ -56,13 +57,15 @@ async function driver(selectedResource, searchParams, page) {
   totalCount = result.totalCount;
   resource = selectedResource;
   renderJSON(result);
-  for (i in searchParams) {
-    delete searchParams[i.toString()];
-  }
+  // for (i in searchParams) {
+  //   delete searchParams[i.toString()];
+  // }
+  document.getElementById("pagination_stats").innerHTML = "";
   document.getElementById("result-box").style.display = "block";
   createButtons(page, totalCount);
 }
 
+// To create a collapsible JSONviewer container
 function renderJSONviewer(id) {
   let target = "#" + id;
   let source = id + "#";

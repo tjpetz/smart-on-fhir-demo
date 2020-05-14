@@ -32,7 +32,7 @@ let data = {
       return `<b>Name</b>: ${queryData["name"][0]["given"][0]} ${queryData["name"][0]["family"]}`;
     },
     language: function (queryData) {
-      let text = "<br><b>Language</b>: ";
+      let text = "<b>Language</b>: ";
       if (queryData["communication"] != null) {
         text += queryData["communication"][0]["language"]["coding"]["code"];
       } else {
@@ -41,11 +41,11 @@ let data = {
       return text;
     },
     gender: function (queryData) {
-      return "<br><b>Gender</b>: " + queryData["gender"];
+      return "<b>Gender</b>: " + queryData["gender"];
     },
     address: function (queryData) {
       return (
-        "<br><b>Address</b>: " +
+        "<b>Address</b>: " +
         queryData["address"][0]["city"] +
         ", " +
         queryData["address"][0]["state"]
@@ -85,7 +85,7 @@ let data = {
       return `<b>Name</b>: ${queryData["name"][0]["given"][0]} ${queryData["name"][0]["family"]}`;
     },
     language: function (queryData) {
-      let text = "<br><b>Language</b>: ";
+      let text = "<b>Language</b>: ";
       if (queryData["communication"] != null) {
         text += queryData["communication"][0]["language"]["coding"]["code"];
       } else {
@@ -94,11 +94,11 @@ let data = {
       return text;
     },
     gender: function (queryData) {
-      return "<br><b>Gender</b>: " + queryData["gender"];
+      return "<b>Gender</b>: " + queryData["gender"];
     },
     address: function (queryData) {
       return (
-        "<br><b>Address</b>: " +
+        "<b>Address</b>: " +
         queryData["address"][0]["city"] +
         ", " +
         queryData["address"][0]["state"]
@@ -150,18 +150,18 @@ let data = {
       return "<b>Patient</b>: " + queryData["subject"]["reference"];
     },
     onSetDate: function (queryData) {
-      return "<br><b>On-set Date</b>: " + queryData["onsetDateTime"];
+      return "<b>On-set Date</b>: " + queryData["onsetDateTime"];
     },
     code: function (queryData) {
       return (
-        "<br><b>Code</b>: " +
+        "<b>Code</b>: " +
         queryData["code"]["coding"][0]["system"] +
         " | " +
         queryData["code"]["coding"][0]["code"]
       );
     },
     asserter: function (queryData) {
-      let text = "<br><b>Asserter</b>: ";
+      let text = "<b>Asserter</b>: ";
       if (queryData["asserter"] != null) {
         text +=
           queryData["asserter"]["type"] +
@@ -208,15 +208,15 @@ let data = {
       return "<b>Status</b>: " + queryData["status"];
     },
     priority: function (queryData) {
-      return "<br><b>Priority</b>: " + queryData["priority"];
+      return "<b>Priority</b>: " + queryData["priority"];
     },
     intent: function (queryData) {
-      return "<br><b>Intent</b>: " + queryData["intent"];
+      return "<b>Intent</b>: " + queryData["intent"];
     },
     encounter: function (queryData) {
-      let text = "<br><b>Encounter</b>: ";
+      let text = "<b>Encounter</b>: ";
       if (queryData["encounter"] != null) {
-        text += `${queryData["encounter"]["type"]} | ${queryData["encounter"]["reference"]}`;
+        text += `${queryData["encounter"]["reference"]}`;
       } else {
         text += queryData["encounter"];
       }
@@ -255,16 +255,16 @@ let data = {
       return text.slice(0, -2);
     },
     type: function (queryData) {
-      return "<br><b>Type</b>: " + queryData["type"];
+      return "<b>Type</b>: " + queryData["type"];
     },
     clinicalStatus: function (queryData) {
       return (
-        "<br><b>Clinical Status</b>: " +
+        "<b>Clinical Status</b>: " +
         queryData["clinicalStatus"]["coding"][0]["code"]
       );
     },
     patient: function (queryData) {
-      return "<br><b>Patient</b>: " + queryData["patient"]["reference"];
+      return "<b>Patient</b>: " + queryData["patient"]["reference"];
     },
   },
 };

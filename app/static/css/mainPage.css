@@ -10,7 +10,6 @@ b {
   font-size: large;
   padding-right: 15px;
 }
-
 .container-fluid {
   margin: 10px;
 }
@@ -34,7 +33,7 @@ b {
 }
 
 #container-full {
-  margin-top: 5%;
+  margin-top: 2vh;
   margin-left: 7%;
   max-width: 90%;
 }
@@ -122,9 +121,14 @@ b {
 
 #resource-result {
   font-family: Lato;
-  max-height: 450px;
+  max-height: 65vh;
   overflow-y: auto;
   font-size: 16px;
+  line-height: 30px;
+}
+
+.json_collapse {
+  line-height: 24px;
 }
 
 #query-select {
@@ -151,6 +155,7 @@ b {
 .form-control {
   width: 170px !important;
   font-size: small;
+  height: 2.25rem;
 }
 input {
   height: 2.25rem;
@@ -159,18 +164,9 @@ input {
   font-size: small;
 }
 
-.query_delete {
+.query-delete {
   margin: 5px;
   color: black;
-}
-.query_delete_close:hover {
-  color: white;
-}
-
-.query_delete_close {
-  border: none;
-  color: black;
-  background-color: inherit;
 }
 
 #selection_box {
@@ -187,7 +183,7 @@ input {
 
 #pagination_stats {
   float: left;
-  padding-top: 25px;
+  padding-top: 16px;
 }
 
 .pagination-btn {
@@ -209,4 +205,12 @@ input {
   width: 20px;
   display: block;
   /* Other styles here */
+}
+
+.result-list-item {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.result-list-item:nth-child(odd) {
+  background: #f7f4f0;
 }
