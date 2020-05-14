@@ -70,6 +70,7 @@ function createButtons(currentPage, totalCount) {
     end = totalCount;
   }
   stats += `${start} - ${end} rows of ${totalCount} records`;
-
-  document.getElementById("pagination_stats").innerHTML = stats;
+  if (totalCount != 0) {
+    document.getElementById("pagination_stats").innerHTML = stats;
+  }
 }
