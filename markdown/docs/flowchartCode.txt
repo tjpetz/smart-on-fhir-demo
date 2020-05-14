@@ -1,0 +1,10 @@
+
+// if you want to change in flowchart then use this code in https://www.websequencediagrams.com/
+Portal->App/status.html: Checks the URl
+App/status.html->Portal:
+App/status.html->App/index.html: On Approval redirects to index.html
+App/index.html->Authorisation Server: App requests the Authorisation
+Authorisation Server->App/index.html: Access Token granted
+note right of App/index.html: App displays data
+App/index.html->+FHIR Server: App accesses FHIR Resources using access token obtained
+FHIR Server-->-App/index.html: FHIR data retrieved
