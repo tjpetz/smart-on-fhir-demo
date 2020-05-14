@@ -48,7 +48,7 @@ function createQueryIcons(data) {
       i +
       ": " +
       data[i] +
-      "  &#x2715;</button> ";
+      "<span style='float:right;'>&#x2715;</span></button> ";
   }
 }
 

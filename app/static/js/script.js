@@ -25,7 +25,7 @@ function onloadPage() {
       //   load(endpoint[i], resources[i], i);
       //   query();
       document.getElementById("result-box").style.display = "none";
-      document.getElementById("overview-box").style.display = "none";
+      document.getElementById("overview-container").style.display = "none";
       let selectedResource = button_Name.slice(1);
 
       let resourceValue = data[selectedResource];
@@ -36,9 +36,9 @@ function onloadPage() {
       searchParams[param] = value;
       document.getElementById(
         "parameter-text"
-      ).innerHTML = `Find ${resource} based on Paramaters`;
+      ).innerHTML = `Filter ${resource}`;
       document.getElementById("resources-name").innerHTML =
-        `<p class="resource-name-heading">` + resource + ` <p>`;
+        `<p class="resource-name-heading">` + resource + ` </p>`;
       document.getElementById("selected-query").innerHTML = "";
 
       driver(button_Name.slice(1), searchParams, 1);
