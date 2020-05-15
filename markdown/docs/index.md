@@ -8,17 +8,17 @@ This documentation will help you create a Sandbox Application using Github pages
 
 ## Prerequisites
 
-- A github account
+- A Github account
 
 ## Github Pages
 
-For the purposes of this tutorial we will be hosting our SMART on FHIR app through GitHub Pages. GitHub Pages is a convenient way to host static or client rendered web sites.
-Setting up GitHub pages is easy, so easy in fact that it’s already done for you.
+For the purposes of this tutorial we will be hosting our SMART on FHIR app through Github Pages. Github Pages is a convenient way to host static or client rendered web sites.
+Setting up Github pages is easy, so easy in fact that it’s already done for you.
 
-- It can also be done by the master branch appraoch, first of all, you need to clone the repository, got to settings and then enable the github Pages there.
-- Since you forked the tutorial, the gh-pages branch has already been created, however GitHub won’t publish your site until you make a change to the gh-pages branch, so let’s make a change.
-- Modify the `index.html` page to include your GitHub user-name in the title, and commit directly to gh-pages branch.
-- Use GitHub UI to directly edit `index.html`. Simply switch the branch to gh-pages, navigate to `/smart-on-fhir-demo/app/index.html` and click the pencil icon.
+- It can also be done by the master branch appraoch, first of all, you need to clone the repository, got to settings and then enable the Github Pages there.
+- Since you forked the tutorial, the gh-pages branch has already been created, however Github won’t publish your site until you make a change to the gh-pages branch, so let’s make a change.
+- Modify the `index.html` page to include your Github user-name in the title, and commit directly to gh-pages branch.
+- Use Github UI to directly edit `index.html`. Simply switch the branch to gh-pages, navigate to `/smart-on-fhir-demo/app/index.html` and click the pencil icon.
 - Commit your changes to deploy.
 - Once the app has been redeployed go to `https://<gh-username>.github.io/smart-on-fhir-demo/app/index.html` to ensure your app is available
 
@@ -94,20 +94,26 @@ The key features of these libraries are
 
 ## Project Setup
 
-- The user needs to fork this repository and deploy it to github pages. Guide to deploying a repository to Github pages can be found here `https://help.github.com/en/github/working-with-github-pages` .
+- The user needs to fork this repository and deploy it to Github pages. Guide to deploying a repository to Github pages can be found here `https://help.github.com/en/github/working-with-github-pages` .
 - After getting the link for the deployed repository, the user needs to enter it in the developer portal and click verify.
 - It is then checked whether the link is valid or not, by hitting the `status.html` page in the repo.
 
-Add Screenshot from portal with steps, not complete pages, just the part
-The complete flow used is shown in the image below.
+![Screenshot](./img/screenshot1.png)
+
+The complete flow used is shown in the image below:
 
 ![Flow Chart](./img/flowchart.png)
 
 ## App Launch
 
 - After the verification of the link by the portal, a launch button appears which on clicking launches the application
+
+![Screenshot](./img/screenshot2.png)
+
 - After verification of the url in the `entrypoint.html` which contains the client id, api_url and the ouath_url, these are stored in the local/session storage and redirects to `base.html`.
 - The user needs to enter the client_secret in the `base.html` which is again stored in local/session storage.
+
+![Screenshot](./img/screenshot3.png)
 
 **Note**; Client secret is sensitive information and for the sample sandbox app we store them in Local storage. We recommend using alternative methods in production application and safeguarding the client_secret from XSS attacks.
 
@@ -126,7 +132,7 @@ The access token is generated using the oauth lib.
 - The accessToken is first searched in the storage, if present, it is checked whether the token is still valid or timed out. In case of a timed out token, a fresh one is requested.
 - In case, token is not found in the storage, a fresh token is generated. Everytime a new token is generated, it is stored in the storage as well with expiry.
 
-The library returns the result in the following format.
+The library returns the result in the following format:
 
 ```
 {
@@ -135,6 +141,37 @@ The library returns the result in the following format.
    token: "kCspwCQjDpVO2O0p6CjS86BEa9blWxU8",
    expires_in: 2304000,
    onSetTime: 1589380443128
+}
+```
+
+When the previous store token got expires the `Oauth` library returns the result in the following format:
+
+```
+{
+    message: "Previous Token timed-out. Generated new token.",
+    status: "Miss",
+    token: "JpqtxGZJxiCsuIdmI5plbpM6y52QKWFP"
+}
+```
+
+When the previous store token is still valid then `Oauth` library returns the same token in the following format:
+
+```
+{
+    message: "Previous Token is still valid.",
+    status: "Hit",
+    token: "7FMYrFZ2AFh1ck76SyFAD0F7GyPMHt3j"
+
+}
+```
+
+When the input client Id or client secret is invalid then `Oauth` library returns the message in the following format:
+
+```
+{
+    code: 400,
+    message: "Invalid Credentials",
+    status: "Failure"
 }
 ```
 
@@ -162,6 +199,24 @@ The function returns data in the following format
     status: 200,
     totalCount: 1000,
     type: "searchset"
+}
+```
+
+Following error message will come when there is a mistake in search param value like `fhirSearch(resource,{"active":"tru"},1,5)`
+
+```
+{
+    message: "Boolean must be True or False",
+    status: 400
+}
+```
+
+Following error message will come when there is a mistake in input client secret :
+
+```
+{
+    message: "Invalid Credentials",
+    status: "Failure"
 }
 ```
 
