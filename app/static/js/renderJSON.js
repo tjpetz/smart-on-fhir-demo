@@ -33,6 +33,9 @@ function renderJSON(queryData) {
         }
         j++;
       }
+      if (j % 2 != 0) {
+        text += `</div>`;
+      }
       text +=
         "</div></a>" +
         `<pre class='collapse json_collapse' id=${source_json}>` +
