@@ -44,11 +44,17 @@ function getURL() {
 }
 
 //function to store client secret
-function clientSecret() {
+async function clientSecret() {
   let client_secret = document.getElementById("client_secret");
   localStore("client_secret", client_secret.value);
   sessionStore("client_secret", client_secret.value);
-  window.location = "../app/index.html";
+  let validate = await oauth();
+  if (validate.code == 400) {
+    alert("Invalid Credential!!!!! Please Enter your client secret again");
+    window.location = "../core/base.html";
+  } else {
+    window.location = "../app/index.html";
+  }
 }
 
 //function to hide or unhide the password
