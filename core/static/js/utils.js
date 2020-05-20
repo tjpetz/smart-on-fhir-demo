@@ -50,7 +50,7 @@ async function clientSecret() {
   sessionStore("client_secret", client_secret.value);
   let validate = await oauth();
   if (validate.code == 400) {
-    alert("Invalid Credential!!!!! Please Enter your client secret again");
+    alert("Invalid Credentials!! Use Clear & Close button and enter your client secret again");
     window.location = "../core/base.html";
   } else {
     window.location = "../app/index.html";
