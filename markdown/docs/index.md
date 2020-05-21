@@ -6,6 +6,8 @@
 
 This documentation will help you create a Sandbox Application using Github pages and Innovaccer Developer Portal to explore FHIR resources.
 
+[Repository link](https://github.com/sid22/smart-on-fhir-demo)
+
 ## Prerequisites
 
 - A Github account
@@ -15,12 +17,10 @@ This documentation will help you create a Sandbox Application using Github pages
 For the purposes of this tutorial we will be hosting our SMART on FHIR app through Github Pages. Github Pages is a convenient way to host static or client rendered web sites.
 Setting up Github pages is easy, so easy in fact that it’s already done for you.
 
-- It can also be done by the master branch appraoch, first of all, you need to clone the repository, got to settings and then enable the Github Pages there.
-- Since you forked the tutorial, the gh-pages branch has already been created, however Github won’t publish your site until you make a change to the gh-pages branch, so let’s make a change.
-- Modify the `index.html` page to include your Github user-name in the title, and commit directly to gh-pages branch.
-- Use Github UI to directly edit `index.html`. Simply switch the branch to gh-pages, navigate to `/smart-on-fhir-demo/app/index.html` and click the pencil icon.
-- Commit your changes to deploy.
-- Once the app has been redeployed go to `https://<gh-username>.github.io/smart-on-fhir-demo/app/index.html` to ensure your app is available
+- First of all, you need to fork the repository.
+- Now go to settings in your forked repository and then enable Github Pages there.
+- Since you forked the tutorial, the master branch has already been created.
+- Once the app has been deployed go to `https://<gh-username>.github.io/smart-on-fhir-demo/core/status.html` to ensure your app is available
 
 ## Project Structure
 
@@ -94,7 +94,12 @@ The key features of these libraries are
 
 ## Project Setup
 
+- The user need to create application on [devloper portal](https://developer.oninnovaccer.com/dashboard/apps/_create/) to get client Id and secret. After successfully registration of your app you will get client Id and secret in popup window which is shown below . Please kept client Id and secret with you or you can download it by clicking on `Download Authorization JSON` button .
+
+  ![Screenshot](./img/screenshot4.png)
+
 - The user needs to fork this repository and deploy it to Github pages. Guide to deploying a repository to Github pages can be found here `https://help.github.com/en/github/working-with-github-pages` .
+
 - After getting the link for the deployed repository, the user needs to enter it in the developer portal and click verify.
 - It is then checked whether the link is valid or not, by hitting the `status.html` page in the repo.
 
