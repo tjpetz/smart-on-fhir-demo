@@ -94,7 +94,12 @@ The key features of these libraries are
 
 ## Project Setup
 
+- The user need to create application on [devloper portal](https://developer.oninnovaccer.com/dashboard/apps/_create/) to get client Id and secret. After successfully registration of your app you will get client Id and secret in popup window which is shown below . Please kept client Id and secret with you or you can download it by clicking on `Download Authorization JSON` button .
+
+  ![Screenshot](./img/screenshot4.png)
+
 - The user needs to fork this repository and deploy it to Github pages. Guide to deploying a repository to Github pages can be found here `https://help.github.com/en/github/working-with-github-pages` .
+
 - After getting the link for the deployed repository, the user needs to enter it in the developer portal and click verify.
 - It is then checked whether the link is valid or not, by hitting the `status.html` page in the repo.
 
