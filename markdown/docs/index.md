@@ -6,7 +6,7 @@
 
 This documentation will help you create a Sandbox Application using Github pages and Innovaccer Developer Portal to explore FHIR resources.
 
-[Smart on FHIR sample deployed link](https://sid22.dev/smart-on-fhir-demo/)
+Sample Smart on FHIR sample deployed link [https://sid22.dev/smart-on-fhir-demo/](https://sid22.dev/smart-on-fhir-demo/)
 
 ## Prerequisites
 
@@ -112,7 +112,8 @@ The complete flow used is shown in the image below:
 ## App Launch
 
 - After the verification of the link by the portal, a launch button appears which on clicking launches the application
-[Smart on FHIR sample deployed link](https://sid22.dev/smart-on-fhir-demo/)
+
+- Sample Smart on FHIR sample deployed link [https://sid22.dev/smart-on-fhir-demo/](https://sid22.dev/smart-on-fhir-demo/)
 
 ![Screenshot](./img/screenshot2.png)
 
